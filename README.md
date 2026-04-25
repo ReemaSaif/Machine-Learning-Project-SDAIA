@@ -36,11 +36,11 @@ The goal of this model is to predict how many bikes will be rented per hour (cnt
    
 *Current/non-ML solution:*
 
-   - Human decision-making: Operators use experience to estimate how many bikes to deploy in each area.
-   - Historical data insights: Average rentals by month or season.
-   - Heuristic rules: For example, weekends are busier than weekdays.
-   - Period comparisons: Demand patterns for similar times (e.g., same day last week or last year).
-   - Weather-based rules: For example, rain reduces bike demand.
+   - **Human decision-making:** Operators use experience to estimate how many bikes to deploy in each area.
+   - **Historical data insights:** Average rentals by month or season.
+   - **Heuristic rules:** For example, weekends are busier than weekdays.
+   - **Period comparisons:** Demand patterns for similar times (e.g., same day last week or last year).
+   - **Weather-based rules:** For example, rain reduces bike demand.
 
 
 These methods suffer from subjective decision‑making, limited scalability, an inability to capture complex interactions, and lower accuracy that often leads to over‑ or under‑supply.
@@ -75,7 +75,6 @@ These methods suffer from subjective decision‑making, limited scalability, an 
 * Yes — the product has the resources to support training or hiring people with the required ML expertise.
 
 
-
 3.	Does ART apply to the data?
    
 * **Available:** Yes, All required input features are available at prediction time, such as season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed. And the target variable (cnt) is correctly excluded from the input features.
@@ -85,34 +84,33 @@ These methods suffer from subjective decision‑making, limited scalability, an 
 
 4.	What is the quantity and quality of the data?
 
-*Quantity:*
+**Quantity:**
+* 17,379 rows (hourly records for 2 years)
+*  16 columns (including weather, calendar, and demand variables)
 
-      * 17,379 rows (hourly records for 2 years)
-	  * 16 columns (including weather, calendar, and demand variables)
-
-*Quality:*
-
-    * No missing values reported in the original dataset description.
-	* Features are already normalized for temp, atemp, hum, and windspeed.
-	* Categorical variables are encoded as integers (season, yr, mnth, holiday, weekday, workingday, weathersit).
-	* The data is clean, consistent, and requires minimal preprocessing for modeling.
+**Quality:**
+* No missing values reported in the original dataset description.
+* Features are already normalized for temp, atemp, hum, and windspeed.
+* Categorical variables are encoded as integers (season, yr, mnth, holiday, weekday, workingday, weathersit).
+* The data is clean, consistent, and requires minimal preprocessing for modeling.
 
 
 5.	What features have been engineered?
    
-   * is_weekend — 1 if Saturday/Sunday, else 0
-   * is_rush_hour — 1 if the hour falls within 7–9 AM or 16–19 PM, else 0
-   * season_peak — 1 if the season is fall (season = 3), else 0
-   * temperature_bin— bin temperature into cold / mild / hot groups
+   * **is_weekend** — 1 if Saturday/Sunday, else 0
+   * **is_rush_hour** — 1 if the hour falls within 7–9 AM or 16–19 PM, else 0
+   * **season_peak** — 1 if the season is fall (season = 3), else 0
+   * **temperature_bin** — bin temperature into cold / mild / hot groups
 
 6.	Which features have the most predictive power?
-Based on the model feature importance results, the feature with the highest predictive power is: 
-**is_rush_hour:** This feature has the strongest impact on the model prediction, indicating that commuting patterns are the main factor of hourly bike rental demand.
+   
+Based on the model feature importance results, the feature with the highest predictive power is this **is_rush_hour:** This feature has the strongest impact on the model prediction, indicating that commuting patterns are the main factor of hourly bike rental demand.
 
 
 7.	What is the prediction of the model, and how is the decision based on it?
 
 The model predicts the number of bikes rented in a given hour using inputs such as weather, season, temperature, humidity, and weekday/weekend indicators, and outputs a forecasted demand value. These predictions help the company decide how many bikes to deploy, how to schedule staff, and when to perform maintenance, ensuring efficient and reliable operations.
+
 
 8.	What are the model’s metrics?
 
@@ -123,10 +121,10 @@ The model predicts the number of bikes rented in a given hour using inputs such 
 9.	What are the success/failure criteria?
 
 **Success Criteria:**
-    * Low RMSE and MAE
-    * High R²
-    * Model outperforms the baseline (Linear Regression)
-    * Predictions are reliable enough to support company decision-making for bike allocation, staffing, and maintenance
+  * Low RMSE and MAE
+  * High R²
+  * Model outperforms the baseline (Linear Regression)
+  * Predictions are reliable enough to support company decision-making for bike allocation, staffing, and maintenance
     
 **Failure Criteria:**
    * High RMSE and MAE
