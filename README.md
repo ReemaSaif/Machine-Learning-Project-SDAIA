@@ -9,7 +9,7 @@ The goal of this model is to predict how many bikes will be rented per hour (cnt
 **The Dataset Coulmns:**
 - instant: record index
 - dteday : date
-- season : season (1:springer, 2:summer, 3:fall, 4:winter)
+- season : season (1 : springer, 2 : summer, 3 : fall, 4 : winter)
 - yr : year (0: 2011, 1:2012)
 - mnth : month ( 1 to 12)
 - hr : hour (0 to 23)
@@ -34,28 +34,31 @@ The goal of this model is to predict how many bikes will be rented per hour (cnt
 
 1.	State the goal
 *Current/non-ML solution:*
+
 Current / non‑ML solution the company likely uses:
-   •	Human decision-making: Operators use experience to estimate how many bikes to deploy in each area.
-   •	Historical data insights: Average rentals by month or season.
-   •	Heuristic rules: For example, weekends are busier than weekdays.
-   •	Period comparisons: Demand patterns for similar times (e.g., same day last week or last year).
-   •	Weather-based rules: For example, rain reduces bike demand.
+   - Human decision-making: Operators use experience to estimate how many bikes to deploy in each area.
+   - Historical data insights: Average rentals by month or season.
+   - Heuristic rules: For example, weekends are busier than weekdays.
+   - Period comparisons: Demand patterns for similar times (e.g., same day last week or last year).
+   - Weather-based rules: For example, rain reduces bike demand.
+
 
 These methods suffer from subjective decision‑making, limited scalability, an inability to capture complex interactions, and lower accuracy that often leads to over‑ or under‑supply.
 
 
 *Application, Goal, Description*
 
-* Application: Demand forecasting for a bike-sharing system
-* Goal: Predict hourly bike rental demand.
-* Description: Using the available features in the dataset, the model predicts how many bikes will be rented at a specific hour.
+* **Application:** Demand forecasting for a bike-sharing system
+* **Goal:** Predict hourly bike rental demand.
+* **Description:** Using the available features in the dataset, the model predicts how many bikes will be rented at a specific hour.
 
 
-*ML Task*
-Type: Supervised Learning
-Task: Regression
-Input features: season, yr, mnth, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed
-Target Variable: cnt 	(count of total rental bikes = casual + registered)
+*ML Task:*
+
+* **Type:** Supervised Learning
+* **Task:** Regression
+* **Input features:** season, yr, mnth, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed
+* **Target Variable:** cnt 	(count of total rental bikes = casual + registered)
 
 2.	Clear use case for ML: Difference, Cost, Maintenance, and Expertise requirements.
 
@@ -73,9 +76,9 @@ Target Variable: cnt 	(count of total rental bikes = casual + registered)
 
 
 3.	Does ART apply to the data?
-* Available: Yes, All required input features are available at prediction time, such as season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed. And the target variable (cnt) is correctly excluded from the input features.
-* Representative: Yes, The dataset covers two full years (2011–2012) with all seasons, holidays, weekdays/weekends, and weather conditions, making it representative of real-world bike rental demand.
-* Trusted: Yes, The data comes from reliable sources, including the bike-sharing system’s own logs and trusted external weather providers, making it suitable and trustworthy for modeling.
+* **Available:** Yes, All required input features are available at prediction time, such as season, yr, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed. And the target variable (cnt) is correctly excluded from the input features.
+* **Representative:** Yes, The dataset covers two full years (2011–2012) with all seasons, holidays, weekdays/weekends, and weather conditions, making it representative of real-world bike rental demand.
+* **Trusted:** Yes, The data comes from reliable sources, including the bike-sharing system’s own logs and trusted external weather providers, making it suitable and trustworthy for modeling.
 
 4.	What is the quantity and quality of the data?
 
